@@ -23,11 +23,13 @@ Fraction::~Fraction() {
 }
 
 
-const int Fraction::getn(){
+const int Fraction::getn()const
+{
     return numerateur;
 }
 
-const int Fraction::getd(){
+const int Fraction::getd()const
+{
     return denominateur;
 }
 
@@ -53,13 +55,33 @@ string Fraction::Afficher()
 	return toto;
 }
 
-void Fraction::addition(int add)
+
+void Fraction::addition(const int add)
 {
+	int n_fraction = add;
+	    int d_fraction = 1;
+	    int n_result = this->numerateur*this->denominateur+n_fraction*d_fraction;
+	    int d_result = this->denominateur*d_fraction;
+	    setn(n_result);
+	    setd(d_result);
+}
+void Fraction::addition(const Fraction& ma_fraction)
+{
+    int n_fraction = ma_fraction.getn();
+    int d_fraction = ma_fraction.getd();
+    int n_result = this->numerateur*this->denominateur+n_fraction*d_fraction;
+    int d_result = this->denominateur*d_fraction;
+    setn(n_result);
+    setd(d_result);
 
 }
-void Fraction::addition(const Fraction&)
+void Fraction::operator+(const Fraction& ma_fraction)
 {
-
+	addition(ma_fraction);
+}
+void Fraction::operator+(int ope)
+{
+	addition(ope);
 }
 
 

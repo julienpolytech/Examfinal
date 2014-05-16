@@ -20,12 +20,14 @@ public:
 	virtual ~Fraction();
 	void setn(const int n);
 	void setd(const int d);
-	const int getn();
-	const int getd();
+	const int getn()const;
+	const int getd()const;
 	string Afficher();
 	string toString(const int nb);
 	void addition(int add);
 	void addition(const Fraction&);
+	void operator+(const Fraction& ma_fraction);
+	void operator+(int ope);
 
 
 private:
